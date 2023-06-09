@@ -1,0 +1,26 @@
+{
+  "name": "crdox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/cli.ts",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/unist": "^2.0.6",
+    "@types/yargs": "^17.0.24",
+    "bun-types": "^0.6.7",
+    "kubernetes-types": "^1.26.0"
+  },
+  "dependencies": {
+    "hast-util-to-html": "^8.0.4",
+    "mdast-builder": "^1.1.1",
+    "mdast-util-gfm": "^2.0.2",
+    "mdast-util-to-hast": "^12.3.0",
+    "mdast-util-to-markdown": "^1.5.0",
+    "yaml": "^2.3.1",
+    "yargs": "^17.7.2"
+  },
+  "scripts": {
+    "build": "bun build ./src/cli.ts --compile --outfile crdox"
+  }
+}
