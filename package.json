@@ -5,10 +5,11 @@
   "main": "./dist/lib/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/types/index.d.ts",
-  "author": "",
+  "author": "Mees van Dongen",
   "license": "MIT",
   "devDependencies": {
     "@modern-js/module-tools": "^2.42.2",
+    "@changesets/cli": "^2.27.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
@@ -16,7 +17,11 @@
     "mdasterix": "^0.0.2"
   },
   "scripts": {
-    "build": "modern build"
+    "build": "modern build",
+    "prepare": "modern build",
+    "release": "bun run build && changeset publish",
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset"
   },
   "exports": {
     ".": {
@@ -24,5 +29,20 @@
       "require": "./dist/lib/index.js",
       "types": "./dist/types/index.d.ts"
     }
-  }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meesvandongen/crd-to-mdast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/meesvandongen/crd-to-mdast/issues"
+  },
+  "type": "module"
 }
