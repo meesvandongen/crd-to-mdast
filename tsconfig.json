@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
-    "types": ["bun-types"],
-    "esModuleInterop": true
-  }
+    "types": [],
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "lib": ["ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "rootDir": "src",
+    "sourceMap": true,
+    "strict": true
+  },
+  "include": ["src"]
 }
