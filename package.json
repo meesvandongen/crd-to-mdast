@@ -2,32 +2,39 @@
   "name": "crd-to-mdast",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "author": "Mees van Dongen",
   "license": "MIT",
   "devDependencies": {
-    "@modern-js/module-tools": "^2.42.2",
     "@changesets/cli": "^2.27.1",
-    "typescript": "^5.3.3"
+    "publint": "^0.3.25",
+    "typescript": "^5.3.3",
+    "vite-plus": "catalog:"
   },
   "dependencies": {
     "kubernetes-types": "^1.26.0",
     "mdasterix": "^0.0.2"
   },
   "scripts": {
-    "build": "modern build",
-    "prepare": "modern build",
-    "release": "bun run build && changeset publish",
+    "build": "vp pack",
+    "prepare": "vp pack",
+    "release": "pnpm run build && changeset publish",
     "typecheck": "tsc --noEmit",
+    "lint": "vp lint",
     "changeset": "changeset"
   },
   "exports": {
     ".": {
-      "import": "./dist/es/index.js",
-      "require": "./dist/lib/index.js",
-      "types": "./dist/types/index.d.ts"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "files": [
@@ -44,5 +51,6 @@
   "bugs": {
     "url": "https://github.com/meesvandongen/crd-to-mdast/issues"
   },
-  "type": "module"
+  "type": "module",
+  "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61"
 }
